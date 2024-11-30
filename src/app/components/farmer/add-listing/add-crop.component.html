@@ -1,0 +1,11 @@
+<form (ngSubmit)="addListing()">
+  <select [(ngModel)]="listing.cultivationId" name="cultivationId">
+    <option *ngFor="let cultivation of cultivations" [value]="cultivation.id">
+      {{ cultivation.cropType }} (Expected Yield: {{ cultivation.expectedYield }})
+    </option>
+  </select>
+  <input type="number" [(ngModel)]="listing.quantity" placeholder="Quantity to Sell" name="quantity" required />
+  <input type="text" [(ngModel)]="listing.location" placeholder="Location" name="location" required />
+  <input type="date" [(ngModel)]="listing.availableFrom" placeholder="Available From" name="availableFrom" required />
+  <button type="submit">Submit</button>
+</form>
