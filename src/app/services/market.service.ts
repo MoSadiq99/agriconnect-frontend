@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MarketService {
 
-  constructor() { }
   private baseUrl = 'http://localhost:8080/api';
 
-  addCultivation(cultivation: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/farmer/cultivation`, cultivation);
-  }
+  constructor(private http: HttpClient) { }  // Inject HttpClient
 
-  addCultivation(cultivation: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/farmer/cultivation`, cultivation);
+  // Method to add a cultivation
+  addListing(listing: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/farmer/cultivation`, listing);
   }
 }

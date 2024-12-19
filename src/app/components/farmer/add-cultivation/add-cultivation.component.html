@@ -1,8 +1,0 @@
-<form (ngSubmit)="addCultivation()">
-  <input type="text" [(ngModel)]="cultivation.cropType" placeholder="Crop Type" name="cropType" required />
-  <input type="number" [(ngModel)]="cultivation.areaCultivated" placeholder="Area Cultivated" name="areaCultivated" required />
-  <input type="number" [(ngModel)]="cultivation.expectedYield" placeholder="Expected Yield" name="expectedYield" required />
-  <input type="date" [(ngModel)]="cultivation.cultivationDate" placeholder="Cultivation Date" name="cultivationDate" required />
-  <input type="date" [(ngModel)]="cultivation.expectedHarvestDate" placeholder="Expected Harvest Date" name="expectedHarvestDate" required />
-  <button type="submit">Submit</button>
-</form>

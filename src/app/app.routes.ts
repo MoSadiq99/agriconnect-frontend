@@ -32,7 +32,7 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () =>
-          import('./components/farmer/farmer-dash/farmer-dash.component').then(
+          import('./pages/farmer/farmer-dash/farmer-dash.component').then(
             (c) => c.FarmerDashComponent
           ),
       },
@@ -47,6 +47,58 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/marketplace/marketplace.component').then(
             (c) => c.MarketplaceComponent
+          ),
+      },
+    ],
+  },
+  {
+    path: 'admin-dash',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./pages/admin/admin-dash/admin-dash.component').then(
+            (c) => c.AdminDashComponent
+          ),
+      },
+    ],
+  },
+  {
+    path: 'buyer-dash',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./pages/buyer/buyer-dash/buyer-dash.component').then(
+            (c) => c.BuyerDashComponent
+          ),
+      },
+    ],
+  },
+  {
+    path: 'requirements',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./components/buyer/requirements/requirements.component').then(
+            (c) => c.RequirementsComponent
+          ),
+      },
+    ],
+  },
+  {
+    path: 'add-listing',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./components/farmer/add-listing/add-crop.component').then(
+            (c) => c.AddCropComponent
           ),
       },
     ],

@@ -1,0 +1,68 @@
+<div class="card shadow-sm rounded-3">
+  <div class="card-header">
+    <h4 class="py-3 mb-0 text-center">Add New Crop Listing</h4>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #listingForm="ngForm" class="needs-validation" novalidate>
+
+      <!-- Crop Type -->
+      <div class="mb-3">
+        <label for="cropType" class="form-label">Crop Type</label>
+        <select id="cropType" class="form-select form-control-lg rounded-pill" [(ngModel)]="listing.cultivationId" name="cultivationId" required
+          [ngClass]="{'is-invalid': listingForm.controls['cultivationId']?.invalid && listingForm.controls['cultivationId']?.touched}">
+          <option value="" disabled>Select Crop Type</option>
+          <option *ngFor="let cultivation of cultivations" [value]="cultivation.id">
+            {{ cultivation.cropType }} (Expected Yield: {{ cultivation.expectedYield }} kg)
+          </option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a crop type.
+        </div>
+      </div>
+
+      <!-- Quantity -->
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantity (in kg)</label>
+        <input type="number" id="quantity" class="form-control form-control-lg rounded-pill" [(ngModel)]="listing.quantity" name="quantity" required
+          min="1"
+          [ngClass]="{'is-invalid': listingForm.controls['quantity']?.invalid && listingForm.controls['quantity']?.touched}" />
+        <div class="invalid-feedback">
+          Please enter a valid quantity.
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" id="location" class="form-control form-control-lg rounded-pill" [(ngModel)]="listing.location" name="location" required
+          [ngClass]="{'is-invalid': listingForm.controls['location']?.invalid && listingForm.controls['location']?.touched}" />
+        <div class="invalid-feedback">
+          Please enter a location.
+        </div>
+      </div>
+
+      <!-- Available From -->
+      <div class="mb-3">
+        <label for="availableFrom" class="form-label">Available From</label>
+        <input type="date" id="availableFrom" class="form-control form-control-lg rounded-pill" [(ngModel)]="listing.availableFrom"
+          name="availableFrom" required
+          [ngClass]="{'is-invalid': listingForm.controls['availableFrom']?.invalid && listingForm.controls['availableFrom']?.touched}" />
+        <div class="invalid-feedback">
+          Please select an available date.
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="d-flex justify-content-between gap-2">
+        <button type="button" class="btn btn-outline-secondary px-4 py-2 rounded-pill" (click)="close()">
+          <i class="bi bi-x-circle"></i> Cancel
+        </button>
+        <button type="submit" class="btn btn-primary px-4 py-2 rounded-pill" [disabled]="!listingForm.form.valid">
+          <i class="bi bi-check-circle"></i> Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
